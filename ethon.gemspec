@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
@@ -15,10 +14,11 @@ Gem::Specification.new do |s|
   s.summary      = "Libcurl wrapper."
   s.description  = "Very lightweight libcurl wrapper."
 
-  s.required_rubygems_version = ">= 1.3.6"
+  s.required_ruby_version = ">= 2.6"
   s.license = 'MIT'
 
   s.add_dependency('ffi', ['>= 1.15.0'])
+  s.add_dependency('logger')
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject do |file|
@@ -26,4 +26,12 @@ Gem::Specification.new do |s|
     end
   end
   s.require_path = 'lib'
+
+  s.metadata              = {
+    'bug_tracker_uri'       => 'https://github.com/typhoeus/ethon/issues',
+    'changelog_uri'         => "https://github.com/typhoeus/ethon/blob/v#{s.version}/CHANGELOG.md",
+    'documentation_uri'     => "https://www.rubydoc.info/gems/ethon/#{s.version}",
+    'rubygems_mfa_required' => 'true',
+    'source_code_uri'       => "https://github.com/typhoeus/ethon/tree/v#{s.version}"
+  }
 end
